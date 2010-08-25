@@ -1,0 +1,25 @@
+CROSS_HOST="x86_64-pc-linux-gnu"
+ORIG_PN="libtool"
+inherit cross
+
+DESCRIPTION="libtool/libltdl for Linux x86_64 toolchain"
+HOMEPAGE="http://www.gnu.org/software/libtool/"
+case $((${PV[3]%[a-z]} % 2)) in
+1)	SRC_URI="http://pogma.com/libtool/${P}.tar.gz" ;;
+0)	SRC_URI="mirror://gnu/libtool/${ORIG_PN}-${PV}.tar.lzma" ;;
+esac
+
+src_compile() {
+	cd ${B}
+	cygconf
+	cygmake -j1
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	dotool libtool
+
+	rm -fr ${D}${CROSS_DATADIR}
+}

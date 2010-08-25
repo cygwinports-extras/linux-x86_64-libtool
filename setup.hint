@@ -1,0 +1,4 @@
+category: Devel
+requires: linux-x86_64-glibc
+sdesc: "Libtool and libltdl for Linux x86_64 toolchain"
+
