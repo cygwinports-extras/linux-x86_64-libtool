@@ -20,6 +20,4 @@ src_install() {
 	cyginstall
 
 	dotool libtool
-
-	rm -fr ${D}${CROSS_DATADIR}
 }
