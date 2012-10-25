@@ -1,7 +1,0 @@
-category: Devel
-requires: linux-x86_64-glibc
-sdesc: "Libtool and libltdl for Linux x86_64 toolchain"
-ldesc: "This package does NOT contain cygwin binaries.  Instead, it
-contains Linux x86_64 binaries.  It is for use with the
-linux-x86_64-gcc cross compiler, and installs into the
-/usr/x86_64-pc-linux-gnu/sys-root/usr/{lib,include} directories."
