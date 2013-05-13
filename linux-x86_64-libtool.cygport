@@ -3,7 +3,7 @@ inherit cross
 
 NAME="linux-x86_64-libtool"
 VERSION=2.4.2
-RELEASE=3
+RELEASE=4
 CATEGORY="Devel"
 SUMMARY="libtool/libltdl for Linux x86-64 toolchain"
 DESCRIPTION="This package does NOT contain cygwin binaries.  Instead, it
@@ -17,7 +17,9 @@ case $((${PV[3]%[a-z]} % 2)) in
 0)	SRC_URI="mirror://gnu/libtool/libtool-${PV}.tar.xz" ;;
 esac
 SRC_DIR="libtool-${PV}"
-PATCH_URI="01-as-needed.patch"
+PATCH_URI="01-as-needed.patch  02-pass-ldflags.patch"
+
+DIFF_EXCLUDES="libtool.1 ltmain.sh"
 
 src_compile() {
 	cd ${B}
@@ -34,4 +36,4 @@ src_install() {
 	rm -fr ${D}${CROSS_DATADIR}/{info,man}/
 }
 
-KEEP_LA_FILES="none"
+KEEP_LA_FILES="all"
